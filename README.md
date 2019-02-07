@@ -101,7 +101,7 @@ By default following extensions are installed.
 
 phpMyAdmin is configured to run on port 8080. Use following default credentials.
 
-http://localhost:8080/  
+http://localhost:8002/  
 username: root  
 password: root
 
