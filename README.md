@@ -54,7 +54,7 @@ This will be used to store Apache logs. The default value for this is `./logs/my
 
 ## Web Server
 
-Apache is configured to run on port 80. So, you can access it via `http://localhost`.
+Apache is configured to run on port 80. So, you can access it via `http://localhost:8001`.
 
 #### Apache Modules
 
