@@ -103,7 +103,7 @@ phpMyAdmin is configured to run on port 8080. Use following default credentials.
 
 http://localhost:8080/  
 username: root  
-password: tiger
+password: root
 
 ## Redis
 
