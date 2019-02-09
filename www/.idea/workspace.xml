@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48daf5f4-7918-49d3-a5e8-2cfc68b1bb48" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinymvc/myapp/models/functionsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +117,7 @@
         <option value="$PROJECT_DIR$/tinymvc/myapp/views/login_view.php" />
         <option value="$PROJECT_DIR$/tinymvc/myapp/controllers/login.php" />
         <option value="$PROJECT_DIR$/tinymvc/myapp/models/page_model.php" />
+        <option value="$PROJECT_DIR$/tinymvc/myapp/models/functionsModel.php" />
         <option value="$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php" />
       </list>
     </option>
@@ -206,12 +207,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549706869992</updated>
-      <workItem from="1549706872613" duration="5874000" />
+      <workItem from="1549706872613" duration="6453000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5874000" />
+    <option name="totallyTimeSpent" value="6453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -320,6 +321,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/page_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tinymvc/myapp/controllers/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -334,13 +342,6 @@
           <folding>
             <element signature="e#7#113#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/page_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="38" />
         </state>
       </provider>
     </entry>
