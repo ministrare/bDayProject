@@ -13,7 +13,9 @@ class Default_Controller extends TinyMVC_Controller
 {
   function index()
   {
-    $this->view->display('index_view');
+    $page_view = new Page_Model('Homepage');
+
+    $this->view->display('login_view');
   }
 }
 

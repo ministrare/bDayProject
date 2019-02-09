@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98f1180b-9592-4df7-b0fd-9d5b2ca6bb0c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/tinymvc/myapp/controllers/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/tinymvc/myapp/controllers/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/tinymvc/myapp/controllers/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/tinymvc/myapp/controllers/default.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/tinymvc/myapp/controllers/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/tinymvc/myapp/controllers/login.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+            <state relative-caret-position="221">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -24,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/default.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="255">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -33,8 +36,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="289">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/user.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -52,9 +64,10 @@
         <option value="$PROJECT_DIR$/www/tinymvc/myapp/models/page_model.php" />
         <option value="$PROJECT_DIR$/www/tinymvc/myapp/controllers/hello.php" />
         <option value="$PROJECT_DIR$/www/tinymvc/myapp/views/hello_view.php" />
-        <option value="$PROJECT_DIR$/www/tinymvc/myapp/controllers/login.php" />
         <option value="$PROJECT_DIR$/www/tinymvc/myapp/controllers/default.php" />
         <option value="$PROJECT_DIR$/www/tinymvc/myapp/controllers/admin.php" />
+        <option value="$PROJECT_DIR$/www/tinymvc/myapp/controllers/user.php" />
+        <option value="$PROJECT_DIR$/www/tinymvc/myapp/controllers/login.php" />
       </list>
     </option>
   </component>
@@ -157,12 +170,12 @@
       <updated>1549709867072</updated>
       <workItem from="1549709869984" duration="4000" />
       <workItem from="1549709894964" duration="2470000" />
-      <workItem from="1549712400389" duration="558000" />
+      <workItem from="1549712400389" duration="1256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3032000" />
+    <option name="totallyTimeSpent" value="3730000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -175,8 +188,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25397456" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25397456" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -188,7 +202,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32969603" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32969603" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49960256" visible="true" weight="0.32969603" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49960256" visible="true" weight="0.32969603" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50039744" side_tool="true" weight="0.32969603" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -251,13 +265,6 @@
     <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/configs/config_database.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/models/page_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deliverables/Image-30.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -275,24 +282,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/models/page_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="221">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/default.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="255">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/tinymvc/myapp/controllers/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="289">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

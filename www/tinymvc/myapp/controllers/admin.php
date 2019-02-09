@@ -10,8 +10,10 @@ class Admin_Controller extends TinyMVC_Controller
 {
     function index()
     {
-        //$this->view->display('index_view');
-        echo 'admin';
+
+        $page_view = new Page_Model('Admin');
+
+        $this->view->display('admin_view');
     }
 }
 
