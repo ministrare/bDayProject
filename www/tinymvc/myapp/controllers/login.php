@@ -11,7 +11,6 @@ class Login_Controller extends TinyMVC_Controller
     function index()
     {
 
-
         $page_view = new Page_Model('Homepage');
 
         $this->view->display('login_view');
