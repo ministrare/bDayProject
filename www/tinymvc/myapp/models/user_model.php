@@ -6,9 +6,12 @@
  * Time: 13:00
  */
 
+
+
 class User_Model extends TinyMVC_Model
 {
-    private $userEmail, $userPass, $userMessage, $userPlaylist;
+    private $userEmail, $userPass;
+    private $userMessage, $userPlaylist;
 
     /**
      * @return mixed
