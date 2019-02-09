@@ -68,4 +68,12 @@ class Page_Model extends TinyMVC_Model
         //ob_flush();
         flush();
     }
+
+    /**
+     * @param string $sPaginatitel
+     */
+    public function setSPaginatitel($sPaginatitel)
+    {
+        $this->sPaginatitel = $sPaginatitel;
+    }
 }

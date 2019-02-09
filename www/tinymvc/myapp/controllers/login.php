@@ -12,12 +12,7 @@ class Login_Controller extends TinyMVC_Controller
     {
 
 
-        // load the model
-        $this->load->model('Page_Model','page');
-        // alternately, specify the connection pool (default is "default")
-        // $this->load->model('Page_Model','page',null,'mypool');
-
-
+        $page_view = new Page_Model('Homepage');
 
         $this->view->display('login_view');
     }
