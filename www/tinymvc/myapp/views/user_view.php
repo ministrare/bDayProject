@@ -18,14 +18,18 @@
                     <label for="inputUrl1">Youtube link:</label>
                     <input id="inputUrl1" type="text" name="url1" class="form-control" placeholder="vb. https://www.youtube.com/watch?v=eiDiKwbGfIY">
                 </div>
+                <div class="form-group">
+                    <label for="inputMessage">Bericht:</label><br>
+                    <textarea id="inputMessage" name="message" rows="3" cols="45"></textarea>
+                </div>
 
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Verzend gegevens</button>
                 </div>
             </form>
         </div>
-        <div class="p-2">
-            <iframe class="centered" width="650" height="350"
+        <div class="p-2 mt-5">
+            <iframe width="650" height="380"
                     src="https://www.youtube.com/embed/op07UzSCu4c">
             </iframe>
         </div>
