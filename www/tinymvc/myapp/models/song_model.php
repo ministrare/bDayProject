@@ -26,7 +26,7 @@ class Song_Model extends TinyMVC_Model
         $this->songTitle = $songTitle;
     }
 
-    public function getSongTitleFromDB($titleid){
-        return $this->songTitle =  $this->db->query_one('select * from song_titles where title_id=?',array($titleid));
+    public function getSongTitleFromDB($titleId){
+        return $this->songTitle =  $this->db->query_one('select * from song_titles where title_id=?',array($titleId));
     }
 }
