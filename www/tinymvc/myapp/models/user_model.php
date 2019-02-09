@@ -6,7 +6,7 @@
  * Time: 13:00
  */
 
-class User_model extends TinyMVC_Model
+class User_Model extends TinyMVC_Model
 {
     private $userEmail, $userPass, $userMessage, $userPlaylist;
 
