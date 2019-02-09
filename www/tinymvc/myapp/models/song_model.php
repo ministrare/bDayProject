@@ -8,7 +8,7 @@
 
 class Song_Model extends TinyMVC_Model
 {
-    private $songTitle;
+    private $songId, $songTitle;
 
     /**
      * @return mixed
