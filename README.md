@@ -8,12 +8,6 @@ This is a basic LAMP stack environment built using Docker Compose. It consists f
 * MySQL 5.7
 * phpMyAdmin
 
-As of now, we have 3 different branches for different PHP versions. Use appropriate branch as per your php version need:
-* [5.6.x](https://github.com/ministrare/docker-compose-lamp/tree/5.6.x)
-* [7.1.x](https://github.com/ministrare/docker-compose-lamp/tree/7.1.x)
-* [7.2.x](https://github.com/ministrare/docker-compose-lamp/tree/7.2.x)
-* Master branch is currently 7.2.x
-
 ## Installation
 
 Clone this repository on your local computer. Run the `docker-compose up -d`.
