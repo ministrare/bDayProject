@@ -23,7 +23,7 @@ class Test_Controller extends TinyMVC_Controller
         // Gets user from DB and initiate User parameters.
         $user->getUser('admin@site.be');
 
-        die(var_dump($user->checkUserPlaylist(1)));
+        var_dump($user);
 
         $this->view->display('test_view');
     }

@@ -12,7 +12,8 @@ class User_Model extends TinyMVC_Model
     private $userEmail, $userPass, $userAdmin;
     private $userFirstName, $userLastName;
     private $userMessage, $userPlaylist;
-    private $created;
+    private $created, $updated;
+
 
     /**
      * @param $email
@@ -48,7 +49,7 @@ class User_Model extends TinyMVC_Model
                 $this->created = $result['created'];
 
                 if($this->checkUserPlaylist($this->userId)){
-                    $this->userPlaylist =
+                    $this->userPlaylist = $this->getUserPlaylist($this->userId);
                 }
             }
 
@@ -156,11 +157,26 @@ class User_Model extends TinyMVC_Model
     }
 
     /**
+     * @param $userId
      * @return mixed
      */
-    public function getUserPlaylist()
+    public function getUserPlaylist($userId)
     {
+        $this->userPlaylist = false;
 
+        try{
+            $row = $this->db->query('SELECT * FROM playlist WHERE user_id=?',array($userId));
+
+            if($row > 0){
+                while($row = $this->db->next()){
+                    $results[] = $row;
+                }
+               $this->userPlaylist = $results;
+
+            }
+        }catch (Exception $e){
+            return false;
+        }
 
         return $this->userPlaylist;
     }
@@ -171,5 +187,13 @@ class User_Model extends TinyMVC_Model
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }
