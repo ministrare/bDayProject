@@ -17,6 +17,6 @@ class Admin_Controller extends TinyMVC_Controller
     }
 }
 
-?>
+
 
 
