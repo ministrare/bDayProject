@@ -20,6 +20,8 @@ git checkout development
 docker-compose up -d
 ```
 
+(if you get a error on the last command, follow step one of (this tutorial)[https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04] and after completion retry last command)
+
 Your LAMP stack is now ready!! You can access it via `http://localhost:8001`.
 
 ## Configuration
