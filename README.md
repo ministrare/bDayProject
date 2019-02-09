@@ -22,6 +22,7 @@ Clone this repository on your local computer. Run the `docker-compose up -d`.
 git clone git@github.com:ministrare/bDayProject.git
 cd docker-compose-lamp/
 git fetch --all
+git checkout development
 docker-compose up -d
 ```
 
