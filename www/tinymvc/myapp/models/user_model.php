@@ -127,26 +127,6 @@ class User_Model extends TinyMVC_Model
         $this->userLastName = $userLastName;
     }
 
-    public function getUser($email)
-    {
-        try{
-            if($this->checkIfUserExists($email)){
-                $result = $this->db->query_one('select * from users where email=?',array($email));
-            }
-
-        }catch (Exception $e){
-            return false;
-        }
-
-        $this->userId = $result['user_id'];
-        $this->userEmail = $result['email'];
-        $this->userPass = $result['password'];
-        $this->userAdmin = $result['admin'];
-        $this->created = $result['created'];
-
-        return $result;
-    }
-
     public function checkIfUserExists($email)
     {
         try{
@@ -156,6 +136,26 @@ class User_Model extends TinyMVC_Model
         }
 
         return true;
+    }
+
+    public function getUser($email)
+    {
+        try{
+            if($this->checkIfUserExists($email)){
+                $result = $this->db->query_one('select * from users where email=?',array($email));
+
+                $this->userId = $result['user_id'];
+                $this->userEmail = $result['email'];
+                $this->userPass = $result['password'];
+                $this->userAdmin = $result['admin'];
+                $this->created = $result['created'];
+            }
+
+            return $result;
+
+        }catch (Exception $e){
+            return false;
+        }
     }
 
     public function storeNewUser($userEmail, $admin = null, $adminPass = null)

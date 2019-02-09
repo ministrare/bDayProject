@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48daf5f4-7918-49d3-a5e8-2cfc68b1bb48" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tinymvc/myapp/controllers/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/tinymvc/myapp/controllers/test.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tinymvc/myapp/models/user_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/tinymvc/myapp/models/user_model.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/user_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="133" column="95" selection-start-line="133" selection-start-column="89" selection-end-line="133" selection-end-column="95" />
+            <state relative-caret-position="396">
+              <caret line="157" column="9" selection-start-line="157" selection-start-column="9" selection-end-line="157" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -199,12 +198,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549706869992</updated>
-      <workItem from="1549706872613" duration="14113000" />
+      <workItem from="1549706872613" duration="14251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14113000" />
+    <option name="totallyTimeSpent" value="14251000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -377,8 +376,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/user_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="133" column="95" selection-start-line="133" selection-start-column="89" selection-end-line="133" selection-end-column="95" />
+        <state relative-caret-position="396">
+          <caret line="157" column="9" selection-start-line="157" selection-start-column="9" selection-end-line="157" selection-end-column="9" />
         </state>
       </provider>
     </entry>
