@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Gegenereerd op: 09 feb 2019 om 10:02
+-- Gegenereerd op: 09 feb 2019 om 12:17
 -- Serverversie: 5.7.25
 -- PHP-versie: 7.2.14
 
@@ -27,6 +27,67 @@ USE `bdayproject`;
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `artists`
+--
+
+CREATE TABLE `artists` (
+  `artist_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `messages`
+--
+
+CREATE TABLE `messages` (
+  `message_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `playlist`
+--
+
+CREATE TABLE `playlist` (
+  `song_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `artist_id` int(11) DEFAULT NULL,
+  `song_title_id` int(11) DEFAULT NULL,
+  `url_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `song_titles`
+--
+
+CREATE TABLE `song_titles` (
+  `title_id` int(11) NOT NULL,
+  `song_title` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `urls`
+--
+
+CREATE TABLE `urls` (
+  `url_id` int(11) NOT NULL,
+  `url` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Tabelstructuur voor tabel `users`
 --
 
@@ -43,11 +104,42 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `email`, `password`, `admin`, `created`) VALUES
-(1, 'admin@site.be', 'password', 1, '2019-02-09 09:19:43');
+(1, 'admin@site.be', 'password', 1, '2019-02-09 09:19:43'),
+(2, 'user@site.be', NULL, 0, '2019-02-09 12:16:57');
 
 --
 -- Indexen voor geëxporteerde tabellen
 --
+
+--
+-- Indexen voor tabel `artists`
+--
+ALTER TABLE `artists`
+  ADD PRIMARY KEY (`artist_id`);
+
+--
+-- Indexen voor tabel `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`message_id`);
+
+--
+-- Indexen voor tabel `playlist`
+--
+ALTER TABLE `playlist`
+  ADD PRIMARY KEY (`song_id`);
+
+--
+-- Indexen voor tabel `song_titles`
+--
+ALTER TABLE `song_titles`
+  ADD PRIMARY KEY (`title_id`);
+
+--
+-- Indexen voor tabel `urls`
+--
+ALTER TABLE `urls`
+  ADD PRIMARY KEY (`url_id`);
 
 --
 -- Indexen voor tabel `users`
@@ -60,10 +152,40 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT voor een tabel `artists`
+--
+ALTER TABLE `artists`
+  MODIFY `artist_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT voor een tabel `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT voor een tabel `playlist`
+--
+ALTER TABLE `playlist`
+  MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT voor een tabel `song_titles`
+--
+ALTER TABLE `song_titles`
+  MODIFY `title_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT voor een tabel `urls`
+--
+ALTER TABLE `urls`
+  MODIFY `url_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

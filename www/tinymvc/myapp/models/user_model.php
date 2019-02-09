@@ -8,11 +8,7 @@
 
 class User_model extends TinyMVC_Model
 {
-    private $userEmail;
-    private $userPass;
-
-    private $userMessage;
-    private $userPlaylist;
+    private $userEmail, $userPass, $userMessage, $userPlaylist;
 
     /**
      * @return mixed
