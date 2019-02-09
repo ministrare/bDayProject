@@ -28,14 +28,26 @@ class User_Model extends TinyMVC_Model
 
     public function checkIfUserExists($email)
     {
-        $result = $this->db->query_one('select * from members where email=?',array($email));
-        die();
+        try{
+            $result = $this->db->query_one('select * from users where email=?',array($email));
+        }catch (Exception $e){
+            return false;
+        }
 
+        return true;
     }
 
-    public function storeNewUser()
+    public function storeNewUser($userEmail, $admin = null, $adminPass = null)
     {
-        return $this->db->insert('users', array('email'=> $this->userEmail));
+        $array = $admin ? array('email'=> $userEmail, 'password'=> $adminPass, 'admin' => 1) : array('email'=> $userEmail) ;
+
+        try{
+            $result = $this->db->insert('users', $array);
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
     }
 
     /**
