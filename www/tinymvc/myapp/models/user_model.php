@@ -46,7 +46,14 @@ class User_Model extends TinyMVC_Model
                 $this->userEmail = $result['email'];
                 $this->userPass = $result['password'];
                 $this->userAdmin = $result['admin'];
+                $this->userFirstName = $result['firstname'];
+                $this->userLastName = $result['lastname'];
                 $this->created = $result['created'];
+
+                if($this->checkUserMessage()){
+                    $this->userMessage = $this->getUserMessage();
+                }
+
 
                 if($this->checkUserPlaylist($this->userId)){
                     $this->userPlaylist = $this->getUserPlaylist($this->userId);
@@ -132,20 +139,50 @@ class User_Model extends TinyMVC_Model
         return $this->userLastName;
     }
 
+    public function checkUserMessage()
+    {
+        $results = false;
+
+        try{
+            $row = $this->db->query('SELECT * FROM messages WHERE user_id=?',array($this->getUserId()));
+            if($row > 0){
+                $results = true;
+            }
+        }catch (Exception $e){
+            return false;
+        }
+
+        return $results;
+    }
+
     /**
      * @return mixed
      */
     public function getUserMessage()
     {
-        return $this->userMessage;
+        $this->userPlaylist = false;
+
+        try{
+            $row = $this->db->query('SELECT message, created, updated FROM messages WHERE user_id=?',array($this->getUserId()));
+
+            if($row > 0){
+                while($row = $this->db->next()){
+                    $results = $row;
+                }
+                $this->userMessage = $results;
+            }
+        }catch (Exception $e){
+            return false;
+        }
+        return $results;
     }
 
-    public function checkUserPlaylist($userId)
+    public function checkUserPlaylist()
     {
         $results = false;
 
         try{
-            $row = $this->db->query('SELECT * FROM playlist WHERE user_id=?',array($userId));
+            $row = $this->db->query('SELECT * FROM playlist WHERE user_id=?',array($this->getUserId()));
             if($row > 0){
                 $results = true;
             }
@@ -160,25 +197,23 @@ class User_Model extends TinyMVC_Model
      * @param $userId
      * @return mixed
      */
-    public function getUserPlaylist($userId)
+    public function getUserPlaylist()
     {
         $this->userPlaylist = false;
 
         try{
-            $row = $this->db->query('SELECT * FROM playlist WHERE user_id=?',array($userId));
+            $row = $this->db->query('SELECT * FROM playlist WHERE user_id=?',array($this->getUserId()));
 
             if($row > 0){
                 while($row = $this->db->next()){
                     $results[] = $row;
                 }
-               $this->userPlaylist = $results;
-
+                $this->userPlaylist = $results;
             }
         }catch (Exception $e){
             return false;
         }
-
-        return $this->userPlaylist;
+        return $results;
     }
 
     /**

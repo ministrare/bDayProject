@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Gegenereerd op: 09 feb 2019 om 15:17
+-- Gegenereerd op: 09 feb 2019 om 16:07
 -- Serverversie: 5.7.25
 -- PHP-versie: 7.2.14
 
@@ -48,6 +48,13 @@ CREATE TABLE `messages` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `messages`
+--
+
+INSERT INTO `messages` (`message_id`, `user_id`, `message`, `created`, `updated`) VALUES
+(1, 1, 'Bedankt voor de uitnodiging', '2019-02-09 16:03:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -170,7 +177,7 @@ ALTER TABLE `artists`
 -- AUTO_INCREMENT voor een tabel `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT voor een tabel `playlist`
