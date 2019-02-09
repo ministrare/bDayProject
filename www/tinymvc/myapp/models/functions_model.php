@@ -8,11 +8,5 @@
 
 class Functions_Model extends TinyMVC_Model
 {
-    private $functions;
 
-
-    public function __construct($poolname = null)
-    {
-        parent::__construct($poolname);
-    }
 }

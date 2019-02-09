@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48daf5f4-7918-49d3-a5e8-2cfc68b1bb48" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tinymvc/myapp/models/functionsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tinymvc/myapp/models/user_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,11 +61,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/README">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/page_model.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
@@ -73,11 +69,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+              <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/user_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -119,6 +124,7 @@
         <option value="$PROJECT_DIR$/tinymvc/myapp/models/page_model.php" />
         <option value="$PROJECT_DIR$/tinymvc/myapp/models/functionsModel.php" />
         <option value="$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php" />
+        <option value="$PROJECT_DIR$/tinymvc/myapp/models/user_model.php" />
       </list>
     </option>
   </component>
@@ -207,12 +213,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549706869992</updated>
-      <workItem from="1549706872613" duration="6453000" />
+      <workItem from="1549706872613" duration="6889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6453000" />
+    <option name="totallyTimeSpent" value="6889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -348,7 +354,14 @@
     <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/functions_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tinymvc/myapp/models/user_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
         </state>
       </provider>
     </entry>
