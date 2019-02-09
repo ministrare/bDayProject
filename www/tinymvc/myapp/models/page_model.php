@@ -35,11 +35,13 @@ class Page_Model extends TinyMVC_Model
         echo '<html lang="' . $this->sTaal . '">';
         // Container <head>...</head>
         echo '<head>';
+        echo '<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">';
         echo '<meta http-equiv="Content-Language" content="' . $this->sTaal . '">';
         echo '<meta http-equiv="Content-Type" content="text/html; charset=' . $this->sKarakterset . '">';
         echo '<meta charset="' . $this->sKarakterset . '">';
         echo '<title>' . $this->sPaginatitel . '</title>';
         echo '<meta name="robots" content="index,follow">';
+        echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">';
         echo '<link href="sans.css" rel="stylesheet" type="text/css">';
         echo '</head>';
         // Begin van de container <body>...</body>
@@ -61,6 +63,9 @@ class Page_Model extends TinyMVC_Model
         echo 'var pageTracker = _gat._getTracker("UA-3828906-1");';
         echo 'pageTracker._trackPageview();';
         echo '</script>';
+        echo '<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>';
+        echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>';
+        echo '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>';
         // Einde van de HTML-code
         echo '</body>';
         echo '</html>';
