@@ -19,4 +19,3 @@ class Default_Controller extends TinyMVC_Controller
   }
 }
 
-?>
