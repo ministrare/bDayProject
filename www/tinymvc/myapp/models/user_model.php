@@ -26,8 +26,10 @@ class User_Model extends TinyMVC_Model
         $this->userEmail = $userEmail;
     }
 
-    public function checkIfUserExists()
+    public function checkIfUserExists($email)
     {
+        $result = $this->db->query_one('select * from members where email=?',array($email));
+        die();
 
     }
 
