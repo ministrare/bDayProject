@@ -202,13 +202,22 @@ class User_Model extends TinyMVC_Model
         $this->userPlaylist = false;
 
         try{
-            $row = $this->db->query('SELECT * FROM playlist WHERE user_id=?',array($this->getUserId()));
+            $row = $this->db->query('
+              SELECT playlist.artist_id, artists.name, playlist.song_title_id, song_titles.song_title 
+              FROM playlist
+              LEFT JOIN song_titles
+              ON playlist.song_title_id = song_titles.title_id
+              LEFT JOIN artists
+              ON playlist.song_title_id = artists.artist_id
+              WHERE user_id=',array($this->getUserId()));
 
             if($row > 0){
                 while($row = $this->db->next()){
                     $results[] = $row;
                 }
                 $this->userPlaylist = $results;
+
+
             }
         }catch (Exception $e){
             return false;
