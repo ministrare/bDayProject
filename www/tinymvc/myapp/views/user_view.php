@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-6"></div>
+        <div class="col-3"></div>
         <form action="" class="col-6 justify-content-md-center" method="post">
             <h1 class="h3 mb-3 font-weight-normal">Vul je meest favoriete nummers in</h1>
             <input type="text" name="artist1" class="form-control" placeholder="Artiest naam">
