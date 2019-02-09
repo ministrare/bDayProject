@@ -26,6 +26,16 @@ class User_model extends TinyMVC_Model
         $this->userEmail = $userEmail;
     }
 
+    public function checkIfUserExists()
+    {
+
+    }
+
+    public function storeNewUser()
+    {
+        return $this->db->insert('users', array('email'=> $this->userEmail));
+    }
+
     /**
      * @return mixed
      */
