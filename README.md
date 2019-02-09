@@ -19,12 +19,13 @@ As of now, we have 3 different branches for different PHP versions. Use appropri
 Clone this repository on your local computer. Run the `docker-compose up -d`.
 
 ```shell
-git clone https://github.com/ministrare/docker-compose-lamp.git
+git clone git@github.com:ministrare/bDayProject.git
 cd docker-compose-lamp/
+git fetch --all
 docker-compose up -d
 ```
 
-Your LAMP stack is now ready!! You can access it via `http://localhost`.
+Your LAMP stack is now ready!! You can access it via `http://localhost:8001`.
 
 ## Configuration
 
@@ -60,7 +61,7 @@ This will be used to store Apache logs. The default value for this is `./logs/my
 
 ## Web Server
 
-Apache is configured to run on port 80. So, you can access it via `http://localhost`.
+Apache is configured to run on port 80. So, you can access it via `http://localhost:8001`.
 
 #### Apache Modules
 
@@ -77,7 +78,7 @@ By default following modules are enabled.
 You can connect to web server using `docker exec` command to perform various operation on it. Use below command to login to container via ssh.
 
 ```shell
-docker exec -it 7.2.x-webserver /bin/bash
+docker exec -it 7.2.x-webserver bash
 ```
 
 ## PHP
@@ -105,11 +106,11 @@ By default following extensions are installed.
 
 ## phpMyAdmin
 
-phpMyAdmin is configured to run on port 8080. Use following default credentials.
+phpMyAdmin is configured to run on port 8002. Use following default credentials.
 
-http://localhost:8080/  
+http://localhost:8002/  
 username: root  
-password: tiger
+password: root
 
 ## Redis
 
