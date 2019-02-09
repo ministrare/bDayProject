@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql:3306
--- Gegenereerd op: 09 feb 2019 om 12:17
+-- Gegenereerd op: 09 feb 2019 om 15:17
 -- Serverversie: 5.7.25
 -- PHP-versie: 7.2.14
 
@@ -63,6 +63,13 @@ CREATE TABLE `playlist` (
   `url_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `playlist`
+--
+
+INSERT INTO `playlist` (`song_id`, `user_id`, `artist_id`, `song_title_id`, `url_id`) VALUES
+(1, 1, 1, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -96,6 +103,8 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
   `admin` tinyint(4) NOT NULL DEFAULT '0',
+  `firstname` varchar(225) NOT NULL,
+  `lastname` varchar(225) NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -103,9 +112,9 @@ CREATE TABLE `users` (
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`user_id`, `email`, `password`, `admin`, `created`) VALUES
-(1, 'admin@site.be', 'password', 1, '2019-02-09 09:19:43'),
-(2, 'user@site.be', NULL, 0, '2019-02-09 12:16:57');
+INSERT INTO `users` (`user_id`, `email`, `password`, `admin`, `firstname`, `lastname`, `created`) VALUES
+(1, 'admin@site.be', 'password', 1, '', '', '2019-02-09 09:19:43'),
+(2, 'user@site.be', NULL, 0, '', '', '2019-02-09 12:16:57');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -167,7 +176,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT voor een tabel `playlist`
 --
 ALTER TABLE `playlist`
-  MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `song_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT voor een tabel `song_titles`
@@ -185,7 +194,7 @@ ALTER TABLE `urls`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

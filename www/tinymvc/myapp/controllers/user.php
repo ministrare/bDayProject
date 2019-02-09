@@ -15,4 +15,11 @@ class User_Controller extends TinyMVC_Controller
 
         $this->view->display('user_view');
     }
+
+    function logout()
+    {
+        $page_view = new Page_Model('Thank you!!');
+
+        $this->view->display('logout_view');
+    }
 }
