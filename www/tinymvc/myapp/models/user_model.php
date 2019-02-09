@@ -14,69 +14,73 @@ class User_Model extends TinyMVC_Model
     private $userMessage, $userPlaylist;
     private $created;
 
-
     /**
-     * @return mixed
+     * @param $email
+     * @return bool
      */
-    public function getUserEmail()
+    public function checkUserExists($email)
     {
-        return $this->userEmail;
+        try{
+            $result = $this->db->query_one('select * from users where email=?',array($email));
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
     }
 
     /**
-     * @param mixed $userEmail
+     * @param $email
+     * @return bool
      */
-    public function setUserEmail($userEmail)
+    public function getUser($email)
     {
-        $this->userEmail = $userEmail;
+        $result = false;
+
+        try{
+            if($this->checkUserExists($email)){
+                $result = $this->db->query_one('select * from users where email=?',array($email));
+
+                $this->userId = $result['user_id'];
+                $this->userEmail = $result['email'];
+                $this->userPass = $result['password'];
+                $this->userAdmin = $result['admin'];
+                $this->created = $result['created'];
+
+                if($this->checkUserPlaylist($this->userId)){
+                    $this->userPlaylist =
+                }
+            }
+
+            return $result;
+
+        }catch (Exception $e){
+            return false;
+        }
     }
 
     /**
-     * @return mixed
+     * @param $userEmail
+     * @param null $admin
+     * @param null $adminPass
+     * @return bool
      */
-    public function getUserPass()
+    public function storeNewUser($userEmail, $admin = null, $adminPass = null)
     {
-        return $this->userPass;
-    }
+        $array = $admin ? array('email'=> $userEmail, 'password'=> $adminPass, 'admin' => 1) : array('email'=> $userEmail) ;
 
-    /**
-     * @param mixed $userPass
-     */
-    public function setUserPass($userPass)
-    {
-        $this->userPass = $userPass;
-    }
+        try{
+            $this->db->insert('users', $array);
 
-    /**
-     * @return mixed
-     */
-    public function getUserMessage()
-    {
-        return $this->userMessage;
-    }
+            if($this->checkUserExists($userEmail)){
+                $this->getUser($userEmail);
+            }
 
-    /**
-     * @param mixed $userMessage
-     */
-    public function setUserMessage($userMessage)
-    {
-        $this->userMessage = $userMessage;
-    }
+        }catch (Exception $e){
+            return false;
+        }
 
-    /**
-     * @return mixed
-     */
-    public function getUserPlaylist()
-    {
-        return $this->userPlaylist;
-    }
-
-    /**
-     * @param mixed $userPlaylist
-     */
-    public function setUserPlaylist($userPlaylist)
-    {
-        $this->userPlaylist = $userPlaylist;
+        return true;
     }
 
     /**
@@ -88,11 +92,27 @@ class User_Model extends TinyMVC_Model
     }
 
     /**
-     * @param mixed $userId
+     * @return mixed
      */
-    public function setUserId($userId)
+    public function getUserEmail()
     {
-        $this->userId = $userId;
+        return $this->userEmail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserPass()
+    {
+        return $this->userPass;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserAdmin()
+    {
+        return $this->userAdmin;
     }
 
     /**
@@ -104,14 +124,6 @@ class User_Model extends TinyMVC_Model
     }
 
     /**
-     * @param mixed $userFirstName
-     */
-    public function setUserFirstName($userFirstName)
-    {
-        $this->userFirstName = $userFirstName;
-    }
-
-    /**
      * @return mixed
      */
     public function getUserLastName()
@@ -120,63 +132,44 @@ class User_Model extends TinyMVC_Model
     }
 
     /**
-     * @param mixed $userLastName
+     * @return mixed
      */
-    public function setUserLastName($userLastName)
+    public function getUserMessage()
     {
-        $this->userLastName = $userLastName;
+        return $this->userMessage;
     }
 
-    public function checkIfUserExists($email)
+    public function checkUserPlaylist($userId)
     {
+        $results = false;
+
         try{
-            $result = $this->db->query_one('select * from users where email=?',array($email));
-        }catch (Exception $e){
-            return false;
-        }
-
-        return true;
-    }
-
-    public function getUser($email)
-    {
-        try{
-            if($this->checkIfUserExists($email)){
-                $result = $this->db->query_one('select * from users where email=?',array($email));
-
-                $this->userId = $result['user_id'];
-                $this->userEmail = $result['email'];
-                $this->userPass = $result['password'];
-                $this->userAdmin = $result['admin'];
-                $this->created = $result['created'];
+            $row = $this->db->query('SELECT * FROM playlist WHERE user_id=?',array($userId));
+            if($row > 0){
+                $results = true;
             }
-
-            return $result;
-
         }catch (Exception $e){
             return false;
         }
+
+        return $results;
     }
 
-    public function storeNewUser($userEmail, $admin = null, $adminPass = null)
+    /**
+     * @return mixed
+     */
+    public function getUserPlaylist()
     {
-        $array = $admin ? array('email'=> $userEmail, 'password'=> $adminPass, 'admin' => 1) : array('email'=> $userEmail) ;
 
-        try{
-            $this->db->insert('users', $array);
 
-            if($this->checkIfUserExists($userEmail)){
-                $this->getUser($userEmail);
-            }
-
-        }catch (Exception $e){
-            return false;
-        }
-
-        return true;
+        return $this->userPlaylist;
     }
 
-
-
-
+    /**
+     * @return mixed
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
 }
