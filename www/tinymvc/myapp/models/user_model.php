@@ -42,7 +42,7 @@ class User_Model extends TinyMVC_Model
         $array = $admin ? array('email'=> $userEmail, 'password'=> $adminPass, 'admin' => 1) : array('email'=> $userEmail) ;
 
         try{
-            $result = $this->db->insert('users', $array);
+            $this->db->insert('users', $array);
         }catch (Exception $e){
             return false;
         }
