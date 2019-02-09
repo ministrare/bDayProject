@@ -40,3 +40,4 @@ class Song_Model extends TinyMVC_Model
         return $this->songTitle =  $this->db->query_one('select * from song_titles where  song_title=?',array($songTitle));
     }
 }
+

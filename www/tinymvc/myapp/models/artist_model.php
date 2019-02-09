@@ -8,7 +8,7 @@
 
 class Artist_Model extends TinyMVC_Model
 {
-    private $name;
+    private $artistId, $name;
 
     /**
      * @return mixed
@@ -27,7 +27,13 @@ class Artist_Model extends TinyMVC_Model
     }
     public function getArtistFromDbById($artistsId)
     {
-        return $this->name = $this->db->query_one('select * from artists where artists_id=?',array($artistsId));
+        $result = $this->name = $this->db->query_one('select * from artists where artists_id=?',array($artistsId));
+
+        $this->artistId = $result['artist_id'] ;
+        $this->name = $result['name'] ;
+
+        return true;
     }
+
 
 }
