@@ -18,7 +18,7 @@ class Test_Controller extends TinyMVC_Controller
         // die( $user->checkIfUserExists('admin@site.be') );
 
         // Stores new User, required parameters: email, optional parameter: admin, password;
-        $user->storeNewUser('adminTest2@site.be', 1, 'password');
+        // $user->storeNewUser('adminTest2@site.be', 1, 'password');
 
         $this->view->display('test_view');
     }
