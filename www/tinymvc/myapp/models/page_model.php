@@ -45,7 +45,7 @@ class Page_Model extends TinyMVC_Model
         // Begin van de container <body>...</body>
         echo '<body lang="' . $this->sTaal . '">';
         // Responsbuffers flushen
-        ob_flush();
+        //ob_flush();
         flush();
     }
 
@@ -65,7 +65,7 @@ class Page_Model extends TinyMVC_Model
         echo '</body>';
         echo '</html>';
         // Responsbuffers flushen
-        ob_flush();
+        //ob_flush();
         flush();
     }
 }
