@@ -6,7 +6,7 @@
  * Time: 11:18
  */
 
-class Hello_Controller extends TinyMVC_Controller
+class Login_Controller extends TinyMVC_Controller
 {
     function index()
     {
@@ -21,6 +21,6 @@ class Hello_Controller extends TinyMVC_Controller
 
         $this->view->assign('title',$title);
         $this->view->assign('body_text',$body_text);
-        $this->view->display('hello_view');
+        $this->view->display('login_view');
     }
 }
