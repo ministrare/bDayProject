@@ -30,8 +30,8 @@ class Message_Model extends TinyMVC_Model
      * @param $userid
      * @return mixed
      */
-    public function getMessageFromDB($userid)
+    public function getMessageFromDB($userId)
     {
-        return $this->message = $this->db->query_one('select * from messages where user_id=?',array($userid));
+        return $this->message = $this->db->query_one('select * from messages where user_id=?',array($userId));
     }
 }
