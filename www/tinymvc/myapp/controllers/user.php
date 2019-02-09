@@ -13,6 +13,6 @@ class User_Controller extends TinyMVC_Controller
     {
         $page_view = new Page_Model('Gebruikers');
 
-        $this->view->display('User_view');
+        $this->view->display('user_view');
     }
 }
