@@ -8,7 +8,19 @@
 
 class Artist_Model
 {
-    private $artistId, $name;
+    private $artistId, $artistName;
+
+    /**
+     * Artist_Model constructor.
+     * # Optional
+     * @param $artistId
+     * @param $artistName
+     */
+    public function __construct($artistId = null, $artistName = null)
+    {
+        $this->artistId = $artistId;
+        $this->artistName = $artistName;
+    }
 
     /**
      * @return mixed
@@ -29,17 +41,17 @@ class Artist_Model
     /**
      * @return mixed
      */
-    public function getName()
+    public function getArtistName()
     {
-        return $this->name;
+        return $this->artistName;
     }
 
     /**
-     * @param mixed $name
+     * @param $artistName
      */
-    public function setName($name)
+    public function setArtistName($artistName)
     {
-        $this->name = $name;
+        $this->artistName = $artistName;
     }
 
 }

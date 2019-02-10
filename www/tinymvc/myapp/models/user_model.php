@@ -11,7 +11,7 @@ class User_Model extends TinyMVC_Model
     private $userId;
     private $userEmail, $userPass, $userAdmin;
     private $userFirstName, $userLastName;
-    private $userMessage, $userPlaylist;
+    private $userMessages, $userPlaylist;
     private $created, $updated;
 
 
@@ -50,12 +50,12 @@ class User_Model extends TinyMVC_Model
                 $this->userLastName = $result['lastname'];
                 $this->created = $result['created'];
 
-                if($this->checkUserMessage()){
-                    $this->userMessage = $this->getUserMessage();
+                if($this->checkUserMessages()){
+                    $this->userMessages = $this->getUserMessages();
                 }
 
-                if($this->checkUserPlaylist($this->userId)){
-                    $this->userPlaylist = $this->getUserPlaylist($this->userId);
+                if($this->checkUserPlaylist()){
+                    $this->userPlaylist = $this->getUserPlaylist();
                 }
             }
 
@@ -138,7 +138,7 @@ class User_Model extends TinyMVC_Model
         return $this->userLastName;
     }
 
-    public function checkUserMessage()
+    public function checkUserMessages()
     {
         $results = false;
 
@@ -157,23 +157,23 @@ class User_Model extends TinyMVC_Model
     /**
      * @return mixed
      */
-    public function getUserMessage()
+    public function getUserMessages()
     {
-        $this->userPlaylist = false;
+        $this->userMessages = false;
 
         try{
-            $row = $this->db->query('SELECT message, created, updated FROM messages WHERE user_id=?',array($this->getUserId()));
+            $row = $this->db->query('SELECT * FROM messages WHERE user_id=?',array($this->getUserId()));
 
             if($row > 0){
                 while($row = $this->db->next()){
-                    $results = $row;
+                    $this->userMessages = new Message_Model($row['message_id'], $row['message'], $row['created'], $row['updated']);
                 }
-                $this->userMessage = $results;
             }
         }catch (Exception $e){
             return false;
         }
-        return $results;
+
+        return $this->userMessages;
     }
 
     public function checkUserPlaylist()
@@ -202,26 +202,30 @@ class User_Model extends TinyMVC_Model
 
         try{
             $row = $this->db->query('
-              SELECT playlist.artist_id, artists.name, playlist.song_title_id, song_titles.song_title 
-              FROM playlist
-              LEFT JOIN song_titles
-              ON playlist.song_title_id = song_titles.title_id
-              LEFT JOIN artists
-              ON playlist.song_title_id = artists.artist_id
-              WHERE user_id=?',array($this->getUserId()));
+                SELECT playlist.song_id, playlist.updated, artists.name, playlist.artist_id,  playlist.song_title_id, song_titles.song_title 
+                FROM playlist
+                LEFT JOIN song_titles
+                ON playlist.song_title_id = song_titles.title_id
+                LEFT JOIN artists
+                ON playlist.song_title_id = artists.artist_id
+                WHERE user_id=?
+                ORDER BY playlist.updated',array($this->getUserId()));
 
             if($row > 0){
                 while($row = $this->db->next()){
-                    $results[] = $row;
+                    $artist = new Artist_Model($row['artist_id'], $row['name']);
+                    $songTitle = new SongTitle_Model($row['song_title_id'], $row['song_title']);
+                    $song = new Song_Model($artist, $songTitle);
+
+                    $results = new Playlist_Model($row['song_id'], $song);
+                    $this->userPlaylist[] = $results;
+                    $this->updated = $row['updated'];
                 }
-                $this->userPlaylist = $results;
-
-
             }
         }catch (Exception $e){
             return false;
         }
-        return $results;
+        return $this->userPlaylist;
     }
 
     /**

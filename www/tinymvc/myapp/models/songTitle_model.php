@@ -1,35 +1,35 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: minis
- * Date: 10/02/2019
- * Time: 17:28
+ * User: error
+ * Date: 9/02/2019
+ * Time: 13:49
  */
 
-class Song_Model
+class SongTitle_Model
 {
-    private $artist, $songTitle;
+    private $songId, $songTitle;
 
-    public function __construct($artist = null, $songTitle = null)
+    public function __construct($songId = null, $songTitle = null)
     {
-        $this->artist = $artist;
+        $this->songId = $songId;
         $this->songTitle = $songTitle;
     }
 
     /**
      * @return mixed
      */
-    public function getArtist()
+    public function getSongId()
     {
-        return $this->artist;
+        return $this->songId;
     }
 
     /**
-     * @param mixed $artist
+     * @param mixed $songId
      */
-    public function setArtist($artist)
+    public function setSongId($songId)
     {
-        $this->artist = $artist;
+        $this->songId = $songId;
     }
 
     /**
@@ -47,4 +47,7 @@ class Song_Model
     {
         $this->songTitle = $songTitle;
     }
+
+
 }
+

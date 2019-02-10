@@ -6,7 +6,7 @@
  * Time: 12:45
  */
 
-class Functions_Model extends TinyMVC_Model
+class Functions_Model
 {
 
 }

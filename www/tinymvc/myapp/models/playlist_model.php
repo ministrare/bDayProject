@@ -2,7 +2,14 @@
 
 class Playlist_Model
 {
-    private $songId, $userId, $artistId, $songTitleId, $urlId, $songList;
+    private $songId, $song, $url;
+
+    public function __construct($songId = null, $song = null, $url = null)
+    {
+        $this->songId = $songId;
+        $this->song = $song;
+        $this->url = $url;
+    }
 
     /**
     * @return mixed
@@ -21,84 +28,34 @@ class Playlist_Model
     }
 
     /**
-     * @return mixed
+     * @return null
      */
-    public function getUserId()
+    public function getSong()
     {
-        return $this->userId;
+        return $this->song;
     }
 
     /**
-     * @param mixed $userId
+     * @param null $song
      */
-    public function setUserId($userId)
+    public function setSong($song)
     {
-        $this->userId = $userId;
+        $this->song = $song;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
-    public function getArtistId()
+    public function getUrl()
     {
-        return $this->artistId;
+        return $this->url;
     }
 
     /**
-     * @param mixed $artistId
+     * @param null $urlId
      */
-    public function setArtistId($artistId)
+    public function setUrl($url)
     {
-        $this->artistId = $artistId;
+        $this->url = $url;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getSongTitleId()
-    {
-        return $this->songTitleId;
-    }
-
-    /**
-     * @param mixed $songTitleId
-     */
-    public function setSongTitleId($songTitleId)
-    {
-        $this->songTitleId = $songTitleId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUrlId()
-    {
-        return $this->urlId;
-    }
-
-    /**
-     * @param mixed $urlId
-     */
-    public function setUrlId($urlId)
-    {
-        $this->urlId = $urlId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSongList()
-    {
-        return $this->songList;
-    }
-
-    /**
-     * @param mixed $songList
-     */
-    public function setSongList($songList)
-    {
-        $this->songList = $songList;
-    }
-
-
 }
