@@ -6,9 +6,25 @@
  * Time: 15:43
  */
 
-class Url_Model extends TinyMVC_Model
+class Url_Model
 {
-private $urlId, $url;
+    private $urlId, $url;
+
+    /**
+     * @return mixed
+     */
+    public function getUrlId()
+    {
+        return $this->urlId;
+    }
+
+    /**
+     * @param mixed $urlId
+     */
+    public function setUrlId($urlId)
+    {
+        $this->urlId = $urlId;
+    }
 
     /**
      * @return mixed
@@ -25,16 +41,4 @@ private $urlId, $url;
     {
         $this->url = $url;
     }
-    public function getUrlFromDb($urlId)
-    {
-        $result = $this->db->query_one('select * from urls where url_id=?',array($urlId));
-
-        $this->urlId = $result['url_id'];
-        $this->url = $result['url'];
-
-        return true;
-
-    }
-
-
 }

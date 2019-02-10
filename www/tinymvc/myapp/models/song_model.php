@@ -6,9 +6,25 @@
  * Time: 13:49
  */
 
-class Song_Model extends TinyMVC_Model
+class Song_Model
 {
     private $songId, $songTitle;
+
+    /**
+     * @return mixed
+     */
+    public function getSongId()
+    {
+        return $this->songId;
+    }
+
+    /**
+     * @param mixed $songId
+     */
+    public function setSongId($songId)
+    {
+        $this->songId = $songId;
+    }
 
     /**
      * @return mixed
@@ -26,18 +42,6 @@ class Song_Model extends TinyMVC_Model
         $this->songTitle = $songTitle;
     }
 
-    public function getSongTitleFromDbById($titleId){
 
-        $result = $this->db->query_one('select * from song_titles where title_id=?',array($titleId));
-
-        $this->songId = $result['title_id'] ;
-        $this->songTitle = $result['song_title'] ;
-
-        return true;
-    }
-
-    public function getSongTitleFromDbByName($songTitle){
-        return $this->songTitle =  $this->db->query_one('select * from song_titles where  song_title=?',array($songTitle));
-    }
 }
 

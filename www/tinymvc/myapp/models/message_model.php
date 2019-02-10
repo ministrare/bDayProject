@@ -8,7 +8,23 @@
 
 class Message_Model extends TinyMVC_Model
 {
-    private $message;
+    private $messageId, $message;
+
+    /**
+     * @return mixed
+     */
+    public function getMessageId()
+    {
+        return $this->messageId;
+    }
+
+    /**
+     * @param mixed $messageId
+     */
+    public function setMessageId($messageId)
+    {
+        $this->messageId = $messageId;
+    }
 
     /**
      * @return mixed
@@ -24,14 +40,5 @@ class Message_Model extends TinyMVC_Model
     public function setMessage($message)
     {
         $this->message = $message;
-    }
-
-    /**
-     * @param $userid
-     * @return mixed
-     */
-    public function getMessageFromDbId($userId)
-    {
-        return $this->message = $this->db->query_one('select * from messages where user_id=?',array($userId));
     }
 }

@@ -54,7 +54,6 @@ class User_Model extends TinyMVC_Model
                     $this->userMessage = $this->getUserMessage();
                 }
 
-
                 if($this->checkUserPlaylist($this->userId)){
                     $this->userPlaylist = $this->getUserPlaylist($this->userId);
                 }
@@ -209,7 +208,7 @@ class User_Model extends TinyMVC_Model
               ON playlist.song_title_id = song_titles.title_id
               LEFT JOIN artists
               ON playlist.song_title_id = artists.artist_id
-              WHERE user_id=',array($this->getUserId()));
+              WHERE user_id=?',array($this->getUserId()));
 
             if($row > 0){
                 while($row = $this->db->next()){

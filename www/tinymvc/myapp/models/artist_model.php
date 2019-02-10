@@ -6,9 +6,25 @@
  * Time: 14:10
  */
 
-class Artist_Model extends TinyMVC_Model
+class Artist_Model
 {
     private $artistId, $name;
+
+    /**
+     * @return mixed
+     */
+    public function getArtistId()
+    {
+        return $this->artistId;
+    }
+
+    /**
+     * @param mixed $artistId
+     */
+    public function setArtistId($artistId)
+    {
+        $this->artistId = $artistId;
+    }
 
     /**
      * @return mixed
@@ -25,15 +41,5 @@ class Artist_Model extends TinyMVC_Model
     {
         $this->name = $name;
     }
-    public function getArtistFromDbById($artistsId)
-    {
-        $result = $this->name = $this->db->query_one('select * from artists where artists_id=?',array($artistsId));
-
-        $this->artistId = $result['artist_id'] ;
-        $this->name = $result['name'] ;
-
-        return true;
-    }
-
 
 }

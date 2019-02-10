@@ -1,24 +1,24 @@
 <?php
 
-class Playlist_Model extends TinyMVC_Model
+class Playlist_Model
 {
-private $songId, $userId, $artistId, $songTitleId, $urlId, $songList;
+    private $songId, $userId, $artistId, $songTitleId, $urlId, $songList;
 
-/**
-* @return mixed
-*/
-public function getSongId()
-{
-return $this->songId;
-}
+    /**
+    * @return mixed
+    */
+    public function getSongId()
+    {
+        return $this->songId;
+    }
 
-/**
-* @param mixed $songId
-*/
-public function setSongId($songId)
-{
-$this->songId = $songId;
-}
+    /**
+    * @param mixed $songId
+    */
+    public function setSongId($songId)
+    {
+        $this->songId = $songId;
+    }
 
     /**
      * @return mixed
