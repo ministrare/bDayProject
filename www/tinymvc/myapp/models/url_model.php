@@ -10,6 +10,12 @@ class Url_Model
 {
     private $urlId, $url;
 
+    public function __construct($urlId = null, $url = null)
+    {
+        $this->urlId = $urlId;
+        $this->url = $url;
+    }
+
     /**
      * @return mixed
      */

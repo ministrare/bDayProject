@@ -193,7 +193,6 @@ class User_Model extends TinyMVC_Model
     }
 
     /**
-     * @param $userId
      * @return mixed
      */
     public function getUserPlaylist()
@@ -202,12 +201,14 @@ class User_Model extends TinyMVC_Model
 
         try{
             $row = $this->db->query('
-                SELECT playlist.song_id, playlist.updated, artists.name, playlist.artist_id,  playlist.song_title_id, song_titles.song_title 
+                SELECT playlist.song_id, playlist.updated, playlist.artist_id, artists.name, playlist.song_title_id, song_titles.song_title, playlist.url_id, urls.url 
                 FROM playlist
                 LEFT JOIN song_titles
                 ON playlist.song_title_id = song_titles.title_id
                 LEFT JOIN artists
-                ON playlist.song_title_id = artists.artist_id
+                ON playlist.artist_id = artists.artist_id
+                LEFT JOIN urls
+                ON playlist.url_id = urls.url_id
                 WHERE user_id=?
                 ORDER BY playlist.updated',array($this->getUserId()));
 
@@ -216,8 +217,9 @@ class User_Model extends TinyMVC_Model
                     $artist = new Artist_Model($row['artist_id'], $row['name']);
                     $songTitle = new SongTitle_Model($row['song_title_id'], $row['song_title']);
                     $song = new Song_Model($artist, $songTitle);
+                    $url = new Url_Model($row['url_id'], $row['url']);
 
-                    $results = new Playlist_Model($row['song_id'], $song);
+                    $results = new Playlist_Model($row['song_id'], $song, $url);
                     $this->userPlaylist[] = $results;
                     $this->updated = $row['updated'];
                 }
