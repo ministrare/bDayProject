@@ -52,7 +52,7 @@ class Playlist_Model
     }
 
     /**
-     * @param null $urlId
+     * @param $url
      */
     public function setUrl($url)
     {

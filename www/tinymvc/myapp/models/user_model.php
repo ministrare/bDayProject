@@ -14,88 +14,27 @@ class User_Model extends TinyMVC_Model
     private $userMessages, $userPlaylist;
     private $created, $updated;
 
-
-    /**
-     * @param $email
-     * @return bool
-     */
-    public function checkUserExists($email)
-    {
-        try{
-            $result = $this->db->query_one('select * from users where email=?',array($email));
-        }catch (Exception $e){
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * @param $email
-     * @return bool
-     */
-    public function getUser($email)
-    {
-        $result = false;
-
-        try{
-            if($this->checkUserExists($email)){
-                $result = $this->db->query_one('select * from users where email=?',array($email));
-
-                $this->userId = $result['user_id'];
-                $this->userEmail = $result['email'];
-                $this->userPass = $result['password'];
-                $this->userAdmin = $result['admin'];
-                $this->userFirstName = $result['firstname'];
-                $this->userLastName = $result['lastname'];
-                $this->created = $result['created'];
-
-                if($this->checkUserMessages()){
-                    $this->userMessages = $this->getUserMessages();
-                }
-
-                if($this->checkUserPlaylist()){
-                    $this->userPlaylist = $this->getUserPlaylist();
-                }
-            }
-
-            return $result;
-
-        }catch (Exception $e){
-            return false;
-        }
-    }
-
-    /**
-     * @param $userEmail
-     * @param null $admin
-     * @param null $adminPass
-     * @return bool
-     */
-    public function storeNewUser($userEmail, $admin = null, $adminPass = null)
-    {
-        $array = $admin ? array('email'=> $userEmail, 'password'=> $adminPass, 'admin' => 1) : array('email'=> $userEmail) ;
-
-        try{
-            $this->db->insert('users', $array);
-
-            if($this->checkUserExists($userEmail)){
-                $this->getUser($userEmail);
-            }
-
-        }catch (Exception $e){
-            return false;
-        }
-
-        return true;
-    }
-
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getUserId($email = null)
     {
-        return $this->userId;
+        if($email === null){
+            return $this->userId;
+        }else{
+
+            try{
+                $result = $this->db->query_one('select * from users where email=?',array($email));
+            }catch (Exception $e){
+                return false;
+            }
+
+            if (!$result){
+                return false;
+            }
+
+            return $this->userId = $result['user_id'];
+        }
     }
 
     /**
@@ -138,6 +77,86 @@ class User_Model extends TinyMVC_Model
         return $this->userLastName;
     }
 
+    /**
+     * @param $email
+     * @return bool
+     */
+    public function checkUserExists($email)
+    {
+        try{
+            $result = $this->db->query_one('select * from users where email=?',array($email));
+        }catch (Exception $e){
+            return false;
+        }
+
+        if (!$result){
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @param $email
+     * @return bool
+     */
+    public function getUser($email)
+    {
+        $result = false;
+
+        try{
+            if($this->checkUserExists($email)){
+                $result = $this->db->query_one('select * from users where email=?',array($email));
+
+                $this->userId = $result['user_id'];
+                $this->userEmail = $result['email'];
+                $this->userPass = $result['password'];
+                $this->userAdmin = $result['admin'];
+                $this->userFirstName = $result['firstname'];
+                $this->userLastName = $result['lastname'];
+                $this->created = $result['created'];
+
+                if($this->checkUserMessages()){
+                    $this->userMessages = $this->getUserMessagesFromDB();
+                }
+
+                if($this->checkUserPlaylist()){
+                    $this->userPlaylist = $this->getUserPlaylistFromDB();
+                }
+            }
+
+            return $result;
+
+        }catch (Exception $e){
+            return false;
+        }
+    }
+
+    /**
+     * @param $userEmail
+     * @param null $firstname
+     * @param null $lastname
+     * @param null $adminPass
+     * @return bool
+     */
+    public function storeNewUser($userEmail, $firstname = null, $lastname = null, $adminPass = null)
+    {
+        $array = $adminPass !== null ? array('email'=> $userEmail, 'password'=> $adminPass, 'admin' => 1, 'firstname' => $firstname, 'lastname' => $lastname) : array('email'=> $userEmail, 'firstname' => $firstname, 'lastname' => $lastname) ;
+
+        try{
+            $this->db->insert('users', $array);
+
+            if($this->checkUserExists($userEmail)){
+                $this->getUser($userEmail);
+            }
+
+        }catch (Exception $e){
+            return false;
+        }
+
+        return true;
+    }
+
     public function checkUserMessages()
     {
         $results = false;
@@ -159,6 +178,10 @@ class User_Model extends TinyMVC_Model
      */
     public function getUserMessages()
     {
+        return $this->userMessages;
+    }
+
+    public function getUserMessagesFromDB(){
         $this->userMessages = false;
 
         try{
@@ -197,11 +220,17 @@ class User_Model extends TinyMVC_Model
      */
     public function getUserPlaylist()
     {
+        return $this->userPlaylist;
+    }
+
+    public function getUserPlaylistFromDB()
+    {
         $this->userPlaylist = false;
 
         try{
             $row = $this->db->query('
-                SELECT playlist.song_id, playlist.updated, playlist.artist_id, artists.name, playlist.song_title_id, song_titles.song_title, playlist.url_id, urls.url 
+                SELECT playlist.song_id, playlist.updated, playlist.artist_id, artists.name, 
+                playlist.song_title_id, song_titles.song_title, playlist.url_id, urls.url 
                 FROM playlist
                 LEFT JOIN song_titles
                 ON playlist.song_title_id = song_titles.title_id
