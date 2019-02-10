@@ -66,7 +66,7 @@ class User_Model extends TinyMVC_Model
      */
     public function getUserFirstName()
     {
-        return $this->userFirstName;
+        return !empty($this->userFirstName) ? $this->userFirstName : "Voornaam";
     }
 
     /**
@@ -74,7 +74,7 @@ class User_Model extends TinyMVC_Model
      */
     public function getUserLastName()
     {
-        return $this->userLastName;
+        return !empty($this->userLastName) ? $this->userLastName : "Achternaam";
     }
 
     /**

@@ -5,15 +5,15 @@
             <form action="/login" method="post">
                 <div class="form-group">
                     <label for="inputEmail">Email address:</label>
-                    <input id="inputEmail" type="email" name="email" class="form-control" placeholder="vb. Jefke.Vermeulen@gmail.com">
+                    <input id="inputEmail" type="email" name="email" class="form-control" placeholder="vb. Jefke.Vermeulen@gmail.com" required>
                 </div>
                 <div class="form-group">
                     <label for="inputSurname">Voornaam:</label>
-                    <input id="inputSurname" type="text" name="surname" class="form-control" placeholder="vb. Jefke">
+                    <input id="inputSurname" type="text" name="surname" class="form-control" placeholder="vb. Jefke" required>
                 </div>
                 <div class="form-group">
                     <label for="inputLastname">Achternaam:</label>
-                    <input id="inputLastname" type="text" name="lastname" class="form-control" placeholder="vb. Vermeulen">
+                    <input id="inputLastname" type="text" name="lastname" class="form-control" placeholder="vb. Vermeulen" required>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Ga verder</button>

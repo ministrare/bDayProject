@@ -8,5 +8,5 @@
 
 class Functions_Model
 {
-
+    //@ToDo: Escape Function
 }
